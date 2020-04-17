@@ -1,8 +1,12 @@
 const debug = require('debug')('bowling');
 
 const strategies = {
-    strikeCalculation: (frame, index) => {},
-    spareCalculation: (frame, index) => {},
+    strikeCalculation: (frame, index) => {
+        return 0;
+    },
+    spareCalculation: (frame, index) => {
+        return 0;
+    },
     regularCalculation: ([ first = 0, second ]) => second ? first + second : 0,
 };
 
@@ -31,6 +35,8 @@ module.exports = () => {
     , 0);
 
     const renderFrame = ([ first = '?', second = '?']) => {
+        if(isStrike([first, second])) return `,X`;
+        if(isSpare([first, second])) return `${first},/`;
         return `${first},${second}`;
     };
     

@@ -42,4 +42,15 @@ describe("bowling", () => {
         bowling.roll(4);
         expect(bowling.getScore()).to.equal("frame: 5,4 -- total: 15");
     });
+
+    it('accounts for a strike frame', () => {
+        bowling.roll(10);
+        expect(bowling.getScore()).to.equal("frame: ,X -- total: 0");
+    });
+
+    it('accounts for a spare frame', () => {
+        bowling.roll(2);
+        bowling.roll(8);
+        expect(bowling.getScore()).to.equal("frame: 2,/ -- total: 0");
+    });
 });
