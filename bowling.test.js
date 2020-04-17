@@ -1,8 +1,15 @@
 const expect = require('expect.js');
 const BowlingGame = require('./lib/bowling');
 
+const MAX_SCORE = 10;
+
 describe("bowling game", () => {
     let bowling;
+
+    const forceSpare = (pins) => {
+        bowling.roll(pins);
+        bowling.roll(MAX_SCORE - pins);
+    };
 
     beforeEach(() => {
         bowling = BowlingGame();
@@ -45,9 +52,27 @@ describe("bowling game", () => {
 
     describe("spare cases", () => {
         it('accounts for a spare frame', () => {
-            bowling.roll(2);
-            bowling.roll(8);
+            forceSpare(2);
             expect(bowling.getScore()).to.equal("frame: 2,/ -- total: 0");
+        });
+        
+        it('stops counting when a spare is reached', () => {
+            bowling.roll(1);
+            bowling.roll(4);
+            bowling.roll(4);
+            bowling.roll(5);
+            forceSpare(6);
+            expect(bowling.getScore()).to.equal("frame: 6,/ -- total: 14");
+        });
+        
+        it('applies extra scoring when a spare is resolved', () => {
+            bowling.roll(1);
+            bowling.roll(4);
+            bowling.roll(4);
+            bowling.roll(5);
+            forceSpare(6);
+            forceSpare(5);
+            expect(bowling.getScore()).to.equal("frame: 5,/ -- total: 14");
         });
     });
     
