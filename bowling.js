@@ -4,7 +4,6 @@ module.exports = () => {
     const getScore = () => {};
 
     return {
-        rolls,
         roll,
         getScore,
     };
