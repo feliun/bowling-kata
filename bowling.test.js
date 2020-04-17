@@ -53,4 +53,11 @@ describe("bowling", () => {
         bowling.roll(8);
         expect(bowling.getScore()).to.equal("frame: 2,/ -- total: 0");
     });
+
+    it('accounts for a regular frame followed by a strike frame', () => {
+        bowling.roll(2);
+        bowling.roll(5);
+        bowling.roll(10);
+        expect(bowling.getScore()).to.equal("frame: ,X -- total: 7");
+    });
 });
