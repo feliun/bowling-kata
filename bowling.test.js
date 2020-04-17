@@ -13,7 +13,7 @@ describe("bowling", () => {
         expect(bowling.getScore).to.be.a('function');
     });
     
-    it('accounts', () => {
-        
+    it('accounts for a just started game', () => {
+        expect(bowling.getScore()).to.equal("frame: ?,?  --  total: 0");
     });
 });
