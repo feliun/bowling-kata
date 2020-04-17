@@ -1,0 +1,24 @@
+{
+  "name": "bowling-kata",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha *.test.js",
+    "test-watch": "mocha *.test.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/feliun/bowling-kata.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/feliun/bowling-kata/issues"
+  },
+  "homepage": "https://github.com/feliun/bowling-kata#readme",
+  "dependencies": {
+    "expect.js": "^0.3.1",
+    "mocha": "^7.1.1"
+  }
+}
