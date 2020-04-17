@@ -1,5 +1,5 @@
 const expect = require('expect.js');
-const BowlingGame = require('./bowling');
+const BowlingGame = require('./lib/bowling');
 
 describe("bowling", () => {
     let bowling;
