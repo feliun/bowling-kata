@@ -22,4 +22,10 @@ describe("bowling", () => {
         expect(bowling.getScore()).to.equal("frame: 2,? -- total: 0");
     });
     
+    it('accounts for a second roll', () => {
+        bowling.roll(2);
+        bowling.roll(4);
+        expect(bowling.getScore()).to.equal("frame: 2,4 -- total: 6");
+    });
+    
 });
