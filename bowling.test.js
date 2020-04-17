@@ -65,7 +65,17 @@ describe("bowling game", () => {
             expect(bowling.getScore()).to.equal("frame: 6,/ -- total: 14");
         });
         
-        it('applies extra scoring when a spare is resolved', () => {
+        it.skip('applies a spare extra points', () => {
+            bowling.roll(1);
+            bowling.roll(4);
+            bowling.roll(4);
+            bowling.roll(5);
+            forceSpare(6);
+            forceSpare(3);
+            expect(bowling.getScore()).to.equal("frame:  -- total: 27");
+        });
+        
+        it('accumulates two spares in a row', () => {
             bowling.roll(1);
             bowling.roll(4);
             bowling.roll(4);
