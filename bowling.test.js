@@ -28,11 +28,18 @@ describe("bowling", () => {
         expect(bowling.getScore()).to.equal("frame: 2,4 -- total: 6");
     });
     
-    it.skip('accounts for a second frame', () => {
+    it('accounts for a partial second frame', () => {
         bowling.roll(2);
         bowling.roll(4);
         bowling.roll(5);
         expect(bowling.getScore()).to.equal("frame: 5,? -- total: 6");
     });
-    
+
+    it('accounts for two complete frames', () => {
+        bowling.roll(2);
+        bowling.roll(4);
+        bowling.roll(5);
+        bowling.roll(4);
+        expect(bowling.getScore()).to.equal("frame: 5,4 -- total: 15");
+    });
 });

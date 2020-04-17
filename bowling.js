@@ -35,6 +35,7 @@ module.exports = () => {
     };
     
     const roll = (pins) => {
+        if (isComplete(rolls[frameIndex])) frameIndex++;
         rolls[frameIndex] = rolls[frameIndex].concat(pins);
         debug(`Current rolls: ${renderFrames()}`);
     };
