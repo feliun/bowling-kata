@@ -1,8 +1,23 @@
 module.exports = () => {
-    const rolls = [];
-    const roll = () => {};
+    const rolls = new Array(10).fill([], 0, 9);
+    let currentFrame = 0;
+    let total = 0;
+
+    const calculateTotal = () => {
+        return total;
+    };
+
+    const renderFrame = ([ first = '?', second = '?']) => {
+        return `${first},${second}`;
+    };
+    
+    const roll = (pins) => {
+        rolls[currentFrame].push(pins);
+    };
+
     const getScore = () => {
-        return "frame: ?,?  --  total: 0";
+        const frameScore = rolls[currentFrame];
+        return `frame: ${renderFrame(frameScore)} -- total: ${calculateTotal()}`;
     };
 
     return {

@@ -14,6 +14,12 @@ describe("bowling", () => {
     });
     
     it('accounts for a just started game', () => {
-        expect(bowling.getScore()).to.equal("frame: ?,?  --  total: 0");
+        expect(bowling.getScore()).to.equal("frame: ?,? -- total: 0");
     });
+    
+    it('accounts for a first roll', () => {
+        bowling.roll(2);
+        expect(bowling.getScore()).to.equal("frame: 2,? -- total: 0");
+    });
+    
 });
