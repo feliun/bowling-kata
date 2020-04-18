@@ -70,9 +70,13 @@ describe("bowling game", () => {
             bowling.roll(4);
             bowling.roll(4);
             bowling.roll(5);
+            expect(bowling.getScore()).to.equal("frame: 4,5 -- total: 14");
             forceSpare(6);
-            forceSpare(3);
-            expect(bowling.getScore()).to.equal("frame:  -- total: 27");
+            expect(bowling.getScore()).to.equal("frame: 6,/ -- total: 14");
+            bowling.roll(2);
+            expect(bowling.getScore()).to.equal("frame: 2,? -- total: 26");
+            bowling.roll(3);
+            expect(bowling.getScore()).to.equal("frame: 2,3 -- total: 31");
         });
         
         it('accumulates two spares in a row', () => {
